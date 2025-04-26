@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://u6vx7ih8h4bw"]
+
+[ext_resource type="Texture2D" uid="uid://s3uxqxqbmryw" path="res://assets/Tileset/Wallfloordoorw First Spritesheet 1.png" id="1_05ppn"]
+
+[node name="Sprite2D" type="Sprite2D"]
+position = Vector2(-19.5, -58.5)
+scale = Vector2(0.646586, 1.31293)
+texture = ExtResource("1_05ppn")
+region_enabled = true
+region_rect = Rect2(62, 54, 249, 147)

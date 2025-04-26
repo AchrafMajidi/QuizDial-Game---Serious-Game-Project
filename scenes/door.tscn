@@ -1,0 +1,111 @@
+[gd_scene load_steps=10 format=3 uid="uid://biwcshc8y2uqw"]
+
+[ext_resource type="Script" uid="uid://cdpg0ic6vh5us" path="res://scripts/door.gd" id="1_v6xrn"]
+[ext_resource type="Texture2D" uid="uid://d1f3q0wxhgxft" path="res://assets/Tileset/Tileset.png" id="2_0phs7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50cdl"]
+atlas = ExtResource("2_0phs7")
+region = Rect2(0, 234, 32, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5njw"]
+atlas = ExtResource("2_0phs7")
+region = Rect2(32, 234, 32, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xadh"]
+atlas = ExtResource("2_0phs7")
+region = Rect2(0, 281, 32, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hwww"]
+atlas = ExtResource("2_0phs7")
+region = Rect2(32, 281, 32, 39)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v1oua"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"ljb",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_50cdl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5njw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xadh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hwww")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ptf7r"]
+size = Vector2(33, 38)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_24eas"]
+radius = 38.2099
+
+[node name="Door" type="Node2D"]
+script = ExtResource("1_v6xrn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2.5, -2.5)
+scale = Vector2(1.03125, 1.05128)
+sprite_frames = SubResource("SpriteFrames_v1oua")
+animation = &"open"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2.5, -2)
+shape = SubResource("RectangleShape2D_ptf7r")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_24eas")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -34.0
+offset_right = 140.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="QuestionLabel" type="Label" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 4.0
+offset_right = 63.0
+offset_bottom = 27.0
+horizontal_alignment = 1
+
+[node name="AnswerInput" type="LineEdit" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.329
+anchor_top = 0.387
+anchor_right = 1.329
+anchor_bottom = 0.395
+offset_left = -268.12
+offset_top = 42.684
+offset_right = -199.558
+offset_bottom = 73.412
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

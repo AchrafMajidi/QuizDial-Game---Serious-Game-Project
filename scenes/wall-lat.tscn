@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bata8oo7ldgpo"]
+
+[ext_resource type="Texture2D" uid="uid://bsn73h6jsqwh6" path="res://assets/Tileset/Wallfloordoorw First Spritesheet 3.png" id="1_cj4d4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bikaa"]
+size = Vector2(6, 203)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-3, -33.5)
+scale = Vector2(0.666667, 0.583333)
+texture = ExtResource("1_cj4d4")
+region_enabled = true
+region_rect = Rect2(846, 664, 9, 348)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, -33.5)
+shape = SubResource("RectangleShape2D_bikaa")

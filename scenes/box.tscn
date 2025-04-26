@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6ywbmtkxtcm"]
+
+[ext_resource type="Texture2D" uid="uid://cshhhsh5lqroq" path="res://assets/Tileset/Inside_C.png" id="1_3inec"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ks2v0"]
+size = Vector2(45.875, 56.5)
+
+[node name="Box" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5.68751, -2.12501)
+scale = Vector2(0.632576, 0.515203)
+texture = ExtResource("1_3inec")
+region_enabled = true
+region_rect = Rect2(431.615, 137.974, 99.3846, 148.103)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.0625, -3.25)
+shape = SubResource("RectangleShape2D_ks2v0")
